@@ -1,0 +1,49 @@
+<section class="pt-3 px-5 shadow-lg">
+    <div class="row title">
+        <div class="col mb-3 text-center">
+            <h3>Lie detector</h3>
+        </div>
+    </div>
+    <div class="row " id="charts">
+        
+        <div class="col text-center">
+            <ngx-charts-linear-gauge
+                [view]="[250,300]"
+                [value]="avgTemp"
+                [units]="units"
+                [min]="20" [max]="40">
+            </ngx-charts-linear-gauge>
+            <div class="col mb-3">
+                <button class="btn--lg  btn--primary mr-5 " (click)="onStartTemperature()">Start</button>
+                <button class="btn--lg  btn--primary " (click)="onStopTemperature()">Stop</button>
+            </div> 
+        </div>
+        <div class="col text-center">
+            <ngx-charts-line-chart
+            [view]= "[620, 500]"
+            [legend]="legend"
+            [showXAxisLabel]="showXAxisLabel"
+            [showYAxisLabel]="showYAxisLabel"
+            [xAxis]="xAxis"
+            [yAxis]="yAxis"
+            [xAxisLabel]="xAxisLabel"
+            [yAxisLabel]="yAxisLabel"
+            [timeline]="timeline"
+            [results]="multi"
+            (select)="onSelect($event)"
+            (activate)="onActivate($event)"
+            (deactivate)="onDeactivate($event)"
+            >
+          </ngx-charts-line-chart>
+          <div class="col mb-3">
+            <button class="btn--lg  btn--primary mr-5 " (click)="onStartBpm()">Start</button>
+            <button class="btn--lg  btn--primary " (click)="onStopBpm()">Stop</button>
+        </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col mb-3">
+            <h5>Conclusion: </h5>
+        </div>
+    </div>
+</section>

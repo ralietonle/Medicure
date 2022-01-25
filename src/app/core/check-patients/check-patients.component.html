@@ -1,0 +1,16 @@
+<section class="pt-3 px-5 shadow-lg">
+    <div class="row title">
+        <div class="col mb-3 text-center">
+            <h3 class="bg-success p-2 text-white">Welcome Dr {{currentName}} (@{{currentUser}}) !</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <h5 class="secondary">Your patients</h5>
+            <ul>
+                <li *ngFor="let patient of patients"><a class="link-primary" [routerLink]="'/core/checkpatients/' + patient.userId">{{patient.email}}</a></li>
+            </ul>
+            
+        </div>
+    </div>
+</section>

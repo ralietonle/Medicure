@@ -1,0 +1,9 @@
+<div class="row " id="history">
+    <div class="col mb-3">
+        <h5 class="primary">History</h5>
+        <app-heart-record *ngFor="let record of bpms"
+            [hrValue]="record.value"
+            [hrDate]="record.date">
+        </app-heart-record>
+    </div>
+</div>

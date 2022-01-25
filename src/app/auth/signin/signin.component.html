@@ -1,0 +1,75 @@
+<section class=" px-5 ">
+    <div class="row ">
+        <div class="col-lg-4 col p-4 m-sm-5 form shadow-lg" >
+            <div class="text-center"><img src="../../../assets/images/logo.png" id="logo" alt="Logo du site" /><p>Medicure</p></div>
+            <form [formGroup]="signinForm" (ngSubmit)="onSubmit()">
+                <div class="signinMessage alert-danger"
+                *ngIf="signinMessage != '' ">
+                    <p>{{signinMessage}}</p>
+                </div>
+                <div class="authMessage alert-warning"
+                *ngIf="authMessage != '' ">
+                    <p>{{authMessage}}</p>
+                </div>
+                
+                <div class="mb-3 ">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" 
+                    class="form-control"
+                    id="email"
+                    formControlName="email" 
+                    />
+                </div>
+                <div class="mb-1 small text-danger"
+                           *ngIf="email?.errors?.email"><p>Your e-mail is invalid</p>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <div class="passwordDiv">
+                        <input type="password"
+                                class="form-control"
+                                id="password"
+                                formControlName="password"
+                                appPassword >
+                    </div>
+                    <div class="mb-1 small text-danger"
+                    *ngIf="password?.errors?.minlength"><p>The password must contain at least 6 characters !</p>
+                    </div>
+                    <div class="mb-1 small text-danger"
+                                *ngIf="!password?.errors?.minlength && password?.errors?.pattern"><p>The password must contain at least one special character !</p>
+                    </div>
+                </div>
+                <div class="mb-2">
+                        
+                    <select formControlName="category">
+                        <option value="" selected disabled >Category</option>
+                        <option *ngFor="let choice of choices" [ngValue]="choice.value">{{choice.content}}</option>
+                       
+                    </select>
+                </div>
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="check">
+                    <label class="form-check-label" for="check">Check me out</label>
+                </div>
+                <div class="text-center">
+                    <button type="submit" 
+                    class="btn btn--outline-primary"
+                    [ngClass]="{'btn--disabled':signinForm.invalid}"
+                    [disabled]="signinForm.invalid"
+                    >Sign in</button>
+                </div>
+                <hr>
+                <div class="text-center mt-2">
+                    <a routerLink="/auth/signup">Don't have an account ? Sign up</a>
+                </div>   
+            </form>
+            
+            <div class=" d-flex align-items-end flex-column mt-2 " >
+                <br>
+                <a routerLink="/">Go back to home</a>
+            </div>
+        </div>
+    </div>
+
+</section>
+

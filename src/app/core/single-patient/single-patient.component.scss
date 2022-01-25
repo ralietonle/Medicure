@@ -1,0 +1,19 @@
+.top-row{
+    display: flex;
+    justify-content: flex-end;
+}
+h3,h4{
+    text-decoration:underline ;
+}
+.nav{
+    a{
+        color: white;
+    }
+    .active-link{
+        &::after{
+            display: block;
+            content: " ";
+            border-bottom: 2px solid white !important;
+        }
+    }
+}

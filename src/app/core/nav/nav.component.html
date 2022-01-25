@@ -1,0 +1,32 @@
+<nav class="nav " *ngIf="isPatient" >
+    <a class="navbar-brand">
+      <img src="../../../assets/images/logo.png" width="50px" height="50px"/>
+        <span class="hidden-sm">Medicure</span>   
+    </a>
+    <a class="nav-link fromleft" routerLinkActive="active-link" routerLink="/core/temperature"><i class="fa fa-fw fa-thermometer-full"></i><span class="hidden-sm">Temperature</span></a>
+    <a class="nav-link fromleft" routerLinkActive="active-link" routerLink="/core/heartrate"><i class="fab fa-gratipay"></i> <span class="hidden-sm"> Heart rate</span></a>
+    <a class="nav-link fromleft" routerLinkActive="active-link" routerLink="/core/liedetector"><i class="fa fa-fw fa-bolt"></i><span class="hidden-sm">Lie detector</span></a>
+    <div class="nav--right">
+      <div class="dropdown">
+        <a class="nav-link dropdown-toggle"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button"><i class="fas fa-plus-circle"></i><span class="hidden-sm">More</span></a>
+            <div class="dropdown-menu menu">
+             <!--<a class="dropdown-item fromleft" routerLink="/core/settings"><i class="fa fa-fw fa-cog"></i> Settings</a>-->  
+              <a class="dropdown-item fromleft" role="button" (click)="onSignOut()" href="#"><i class="fa fa-fw fa-sign-out-alt"></i>Log out</a>
+            </div>
+      </div> 
+    </div>
+</nav>
+<nav class="nav " *ngIf="!isPatient">
+  <a class="navbar-brand">
+      <span class="hidden-sm">Medicure</span>   
+  </a>
+  <div class="nav--right">
+    <div class="dropdown">
+      <a class="nav-link dropdown-toggle"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button"><i class="fas fa-plus-circle"></i><span class="hidden-sm">More</span></a>
+          <div class="dropdown-menu menu">
+           <!--<a class="dropdown-item fromleft" routerLink="/core/settings"><i class="fa fa-fw fa-cog"></i> Settings</a>-->  
+            <a class="dropdown-item fromleft" role="button" (click)="onSignOut()" href="#"><i class="fa fa-fw fa-sign-out-alt"></i>Log out</a>
+          </div>
+    </div> 
+  </div>
+</nav>

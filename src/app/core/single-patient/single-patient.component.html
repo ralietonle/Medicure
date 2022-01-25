@@ -1,0 +1,24 @@
+<section class="pt-3 px-5 shadow-lg">
+    
+    <div class="top-row mb-1"><a role="button" class=" btn--sm btn--secondary" routerLink="/core/checkpatients">Return to the patients list</a></div>
+    <div class="row title">
+        <div class="col mb-3 ">
+            <h3 class="primary">{{name | uppercase}} (@{{username}})</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <h4 class="secondary">Medical History</h4> 
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <nav class="nav bg--primary ">
+                <a class="nav-link fromleft" routerLinkActive="active-link" routerLink="temperature"><i class="fa fa-fw fa-thermometer-full"></i><span class="hidden-sm">Temperature</span></a>
+                <a class="nav-link fromleft" routerLinkActive="active-link" routerLink="heartrate"><i class="fab fa-gratipay"></i> <span class="hidden-sm"> Heart rate</span></a>
+            </nav>
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+    
+</section>
